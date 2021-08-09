@@ -1,19 +1,40 @@
-const alunos = ["Alanis", "Ana", "Bruno", "Diego", "Eduardo",
-"Gustavo", "João", "Kayo", "Letícia", "Lucas Gabriel", "Luiz C", "Luiz Eduardo",
-"Marcio Kauã", "Marlon", "Michelle", "Sandy", "Vinicius B"];
+let button = document.querySelector("#sorteador"),
+    parag = document.querySelector("#NomeAluno")
 
- 
+function finish() {
 
-const numeroSorteado = Math.floor(Math.random() * alunos.length);
+        alert("Todos alunos sorteados!!")
+        
+}
 
-console.log(alunos[numeroSorteado]);
+button.onclick = function() {
 
-console.log(alunos);
-
-function excluirName() {
+    const alunos = JSON.parse(localStorage.getItem("Alunos"))
     
-    let aluno = alunos.splice(" ")
+    if (alunos.length === 0) {
+        
+        finish()
 
+        return
+    }
 
-    JSON.stringify(aluno)
+    const numeroSorteado = Math.floor(Math.random() * alunos.length);
+
+    let aluno = alunos[numeroSorteado]
+
+    let indice = alunos.indexOf(aluno)
+
+    while (indice >= 0) {
+        
+        alunos.splice(indice, 1)
+
+        indice = alunos.indexOf(aluno)
+    }
+
+    parag.innerHTML = aluno
+
+    console.log(alunos);
+
+    localStorage.setItem("Alunos", JSON.stringify(alunos))
+
 }

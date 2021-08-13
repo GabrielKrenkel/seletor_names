@@ -8,20 +8,15 @@ if (contador == false) {
 
 }
 
-if (contador < 2) {
-    
-    contador++
+if (contador == 0) {
 
-}
-
-if (contador == 1) {
-
-    let alunos = ["Alanis", "Ana", "Bruno", "Diego", "Eduardo",
+    let alunos = ["Alanis", "Diego", "Eduardo",
     "Gustavo", "João", "Kayo", "Letícia", "Lucas Gabriel", "Luiz C", "Luiz Eduardo",
-    "Marcio Kauã", "Marlon", "Michelle", "Sandy", "Vinicius B"]
+    "Marcio Kauã", "Michelle", "Sandy"]
 
     localStorage.setItem("Alunos", JSON.stringify(alunos))
 
+    contador++
 }
 
 localStorage.setItem("Contador", JSON.stringify(contador))
